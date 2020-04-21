@@ -1,7 +1,7 @@
 
 var csvData;
 
-d3.csv('assets/data/data.csv').then(data => {
+d3.csv('data.csv').then(data => {
     csvData = data;
 
     var width = parseInt(d3.select('#scatter').style('width'));
@@ -26,10 +26,10 @@ d3.csv('assets/data/data.csv').then(data => {
 
     svg.append('g').attr('class', 'xText');
 
-    var xText = d3.select('xText');
+    var xText = d3.select('.xText');
     
-    xText = d3
-        .select('.xText')
+    xText
+        .append('text')
         .text('In Poverty (%)')
         .attr('y',26)
         .attr('data-name','poverty')
@@ -39,7 +39,7 @@ d3.csv('assets/data/data.csv').then(data => {
 
     svg.append('g').attr('class','yText');
 
-    var yText = d3.select('class','yText');
+    var yText = d3.select('.yText');
     var leftTextX = margin + tPadLeft;
     var leftTextY = (height + labelArea) / 2 - labelArea;
 
